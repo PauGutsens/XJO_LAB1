@@ -41,6 +41,7 @@ public class LobbyUDPClient : MonoBehaviour
         try
         {
             m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            m_socket.Bind(new IPEndPoint(IPAddress.Any, 0)); // Port 0 = SO assigna lliurement
             m_serverEP = new IPEndPoint(IPAddress.Parse(serverIP), serverPort);
 
             m_isRunning = true;
